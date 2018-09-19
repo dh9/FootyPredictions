@@ -1,0 +1,35 @@
+<h1>Your predictions</h1>
+<form (ngSubmit)="onSubmit()" #predictionsForm="ngForm">
+    <div class="container form-group">
+        <div class="row">
+          <div class="col-xs-3">
+            {{prediction.homeTeam}}
+          </div>
+          <div class="col-xs-2">
+              <input type="text" class="form-control" id="homeScore"
+              required
+              [(ngModel)]="prediction.homeScore" name="homeScore"
+              #homeScore="ngModel">
+              <div [hidden]="homeScore.valid || homeScore.pristine"
+             class="alert alert-danger">
+                Home Score is required
+              </div>
+          </div>
+          <div class="col-xs-2">v</div>
+          <div class="col-xs-2">
+              <input type="text" class="form-control" id="awayScore"
+              required
+              [(ngModel)]="prediction.awayScore" name="awayScore"
+              #awayScore="ngModel">
+              <div [hidden]="awayScore.valid || awayScore.pristine"
+             class="alert alert-danger">
+                Away Score is required
+              </div>
+          </div>
+          <div class="col-xs-3">
+            {{model.awayTeam}}
+          </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!predictionsForm.form.valid">Submit</button>
+</form>

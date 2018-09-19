@@ -27,6 +27,11 @@
                         <span class='glyphicon glyphicon-th-list'></span> Fetch data
                     </a>
                 </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/make-prediction"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-pencil'></span> Make Prediction
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
