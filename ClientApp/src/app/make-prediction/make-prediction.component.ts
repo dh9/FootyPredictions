@@ -9,15 +9,15 @@ import { Match } from './match';
 })
 export class MakePredictionComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+     this.matches = [new Match(1, 'Manchester United', 'Chelsea'), new Match(1, 'Leicester City FC', 'Liverpool FC')];
+     this.model = this.matches.map(m => new MatchPrediction(m));
+  }
 
   ngOnInit() {
   }
-  homeTeam = 'Manchester United';
-  awayTeam = 'Chelsea';
-  matches = [new Match(1, 'Manchester United', 'Chelsea'), new Match(1, 'Leicester City FC', 'Liverpool FC')]
-
-  model = this.matches.forEach(m => new MatchPrediction(m.id, null, null));
+  public matches: Match[];
+  public model: MatchPrediction[];
 
   submitted = false;
   onSubmit() { this.submitted = true; }

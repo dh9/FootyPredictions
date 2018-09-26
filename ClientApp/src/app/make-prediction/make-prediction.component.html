@@ -1,9 +1,9 @@
 <h1>Your predictions</h1>
 <form (ngSubmit)="onSubmit()" #predictionsForm="ngForm">
     <div class="container form-group">
-        <div class="row">
+        <div class="row" *ngFor="let prediction of model">
           <div class="col-xs-3">
-            {{prediction.homeTeam}}
+            {{prediction.match.homeTeam}}
           </div>
           <div class="col-xs-2">
               <input type="text" class="form-control" id="homeScore"
@@ -27,7 +27,7 @@
               </div>
           </div>
           <div class="col-xs-3">
-            {{model.awayTeam}}
+            {{prediction.match.awayTeam}}
           </div>
         </div>
     </div>
